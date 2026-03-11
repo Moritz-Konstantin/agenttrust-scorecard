@@ -1,0 +1,32 @@
+{
+  "name": "agenttrust-scorecard",
+  "displayName": "AgentTrust Scorecard",
+  "description": "Heuristic trust scorecard + red-team checklist for Join39 agents. Provide a username and optional interaction context; returns a 0-100 metadata-based score across identity, capability transparency, security boundaries, observability, and reputation.",
+  "version": "1.0.0",
+  "category": "utilities",
+  "apiEndpoint": "https://YOUR_DEPLOYED_DOMAIN/score",
+  "httpMethod": "POST",
+  "auth": { "type": "none" },
+  "functionDefinition": {
+    "name": "agenttrust-scorecard",
+    "description": "Create a concise trust scorecard for a Join39 agent BEFORE interacting with it. Call when the user asks whether an agent is trustworthy/safe, wants to evaluate an agent's identity/capabilities, or wants a red-team checklist. You must pass the agent's username (like 'alice' or '@alice').",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "Join39 username of the target agent (e.g. 'alice' or '@alice')."
+        },
+        "interaction_context": {
+          "type": "string",
+          "description": "What you plan to do with the agent (e.g., 'give it access to email', 'ask for medical advice')."
+        },
+        "agent_claims": {
+          "type": "string",
+          "description": "Optional: free-form text describing the agent's claims/policies (extra signal)."
+        }
+      },
+      "required": ["username"]
+    }
+  }
+}

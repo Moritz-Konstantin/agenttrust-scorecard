@@ -1,0 +1,20 @@
+{
+  "agent_name": "alice agent",
+  "description": "A personal agent that chats and can help with scheduling.",
+  "capabilities": {"modalities": ["text"], "streaming": false},
+  "skills": [
+    {"id": "chat", "description": "General conversation and Q&A", "inputModes": ["text"], "outputModes": ["text"]},
+    {"id": "calendar", "description": "Helps schedule meetings (no direct access)", "inputModes": ["text"], "outputModes": ["text"]}
+  ],
+  "core_identity": {
+    "agent_id": "urn:agent:example:alice",
+    "name": "Alice",
+    "created": "2026-01-01T00:00:00Z",
+    "last_updated": "2026-03-01T00:00:00Z"
+  },
+  "baseline_model": {
+    "foundation_model": "gpt-5",
+    "model_provider": "OpenAI",
+    "known_limitations": ["May make mistakes", "Cannot access private data unless provided"]
+  }
+}
